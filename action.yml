@@ -1,0 +1,20 @@
+name: 'Install Rtools40'
+description: 'Install the (legacy) rtools40 bundle'
+inputs:
+  version:
+    description: 'Which verion to install'
+    default: 4.0.0.20220206
+    required: false
+
+runs:
+  using: "composite"
+  steps: 
+    - if: runner.os == 'windows'
+      name: "Install Rtools40"
+      shell: pwsh
+      run: |
+        if(Test-path c:\\rtools40){
+          echo "rtools40 is preinstalled"
+        } else {
+          choco install --confirm --no-progress rtools --version ${{inputs.version}}
+        }
