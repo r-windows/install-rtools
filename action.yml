@@ -16,5 +16,5 @@ runs:
         if(Test-path c:\\rtools40){
           echo "rtools40 is preinstalled"
         } else {
-          choco install --confirm --no-progress rtools --version ${{inputs.version}}
+          choco install --confirm --no-progress --side-by-side rtools --version ${{inputs.version}}
         }
