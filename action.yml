@@ -18,3 +18,4 @@ runs:
         } else {
           choco install --confirm --no-progress --side-by-side rtools --version ${{inputs.version}}
         }
+        echo "c:\\rtools40\\usr\\bin" >> $GITHUB_PATH
